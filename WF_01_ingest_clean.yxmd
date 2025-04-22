@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="78" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Load raw flight dataset (2018–2024)</AnnotationText>
+          <DefaultAnnotationText>flight_data_2018_2024.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Year" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Quarter" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Month" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DayofMonth" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DayOfWeek" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="FlightDate" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Marketing_Airline_Network" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Operated_or_Branded_Code_Share_Partners" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DOT_ID_Marketing_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="IATA_Code_Marketing_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Flight_Number_Marketing_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Originally_Scheduled_Code_Share_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DOT_ID_Originally_Scheduled_Code_Share_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="IATA_Code_Originally_Scheduled_Code_Share_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Flight_Num_Originally_Scheduled_Code_Share_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Operating_Airline " size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DOT_ID_Operating_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="IATA_Code_Operating_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Tail_Number" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Flight_Number_Operating_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="OriginAirportID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="OriginAirportSeqID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="OriginCityMarketID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Origin" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="OriginCityName" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="OriginState" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="OriginStateFips" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="OriginStateName" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="OriginWac" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DestAirportID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DestAirportSeqID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DestCityMarketID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Dest" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DestCityName" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DestState" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DestStateFips" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DestStateName" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DestWac" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CRSDepTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DepTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DepDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DepDelayMinutes" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DepDel15" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DepartureDelayGroups" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DepTimeBlk" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="TaxiOut" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="WheelsOff" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="WheelsOn" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="TaxiIn" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CRSArrTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrDelayMinutes" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrDel15" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrivalDelayGroups" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrTimeBlk" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Cancelled" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CancellationCode" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Diverted" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CRSElapsedTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ActualElapsedTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="AirTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Flights" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Distance" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DistanceGroup" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CarrierDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="WeatherDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="NASDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="SecurityDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="LateAircraftDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="FirstDepTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="TotalAddGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="LongestAddGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DivAirportLandings" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DivReachedDest" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DivActualElapsedTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DivArrDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DivDistance" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div1Airport" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div1AirportID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div1AirportSeqID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div1WheelsOn" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div1TotalGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div1LongestGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div1WheelsOff" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div1TailNum" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div2Airport" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div2AirportID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div2AirportSeqID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div2WheelsOn" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div2TotalGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div2LongestGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div2WheelsOff" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div2TailNum" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div3Airport" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div3AirportID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div3AirportSeqID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div3WheelsOn" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div3TotalGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div3LongestGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div3WheelsOff" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div3TailNum" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div4Airport" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div4AirportID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div4AirportSeqID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div4WheelsOn" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div4TotalGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div4LongestGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div4WheelsOff" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div4TailNum" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div5Airport" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div5AirportID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div5AirportSeqID" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div5WheelsOn" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div5TotalGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div5LongestGTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div5WheelsOff" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Div5TailNum" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Duplicate" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Field_120" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="186" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="FlightDate" selected="True" />
+            <SelectField field="Operating_Airline " selected="True" />
+            <SelectField field="Flight_Number_Operating_Airline" selected="True" />
+            <SelectField field="Origin" selected="True" />
+            <SelectField field="Dest" selected="True" />
+            <SelectField field="CRSDepTime" selected="True" />
+            <SelectField field="DepDelayMinutes" selected="True" />
+            <SelectField field="CRSArrTime" selected="True" />
+            <SelectField field="ArrDelayMinutes" selected="True" />
+            <SelectField field="ArrDel15" selected="True" />
+            <SelectField field="Cancelled" selected="True" />
+            <SelectField field="Diverted" selected="True" />
+            <SelectField field="CarrierDelay" selected="True" />
+            <SelectField field="WeatherDelay" selected="True" />
+            <SelectField field="NASDelay" selected="True" />
+            <SelectField field="LateAircraftDelay" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Filtered columns:
+Keep only relevant fields needed for delay analysis</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="342" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[ToNumber([Cancelled]) = 0 AND ToNumber([Diverted]) = 0
+]]></Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>ToNumber([Cancelled]) = 0 AND ToNumber([Diverted]) = 0
+Remove cancelled or diverted flights</AnnotationText>
+          <DefaultAnnotationText><![CDATA[ToNumber([Cancelled]) = 0 AND ToNumber([Diverted]) = 0
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="498" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF ToNumber([ArrDel15]) = 1 THEN 1 ELSE 0 ENDIF&#xA;" field="SLA_Breach" size="2" type="Int16" enabled="true" />
+            <FormulaField expression="IF ToNumber([ArrDelayMinutes]) &gt; 60 THEN &quot;Severe&quot;&#xA;ELSEIF ToNumber([ArrDelayMinutes]) &gt; 15 THEN &quot;Moderate&quot;&#xA;ELSEIF ToNumber([ArrDelayMinutes]) &gt; 0 THEN &quot;Minor&quot;&#xA;ELSE &quot;On Time&quot;&#xA;ENDIF&#xA;" field="DelayCategory" size="64" type="String" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>SLA_Breach = IF ToNumber([ArrDel15]) = 1 THEN 1 ELSE 0 ENDIF
+
+DelayCategory = IF...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="222" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\prasa\AppData\Local\Temp\Alteryx\Engine_30520_ca8c14fde79049518a270909d94d76ae_\Engine_30520_6cc1302f7bd84801ae92b2c3cf5cd6d7~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="462" y="-6" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\prasa\AppData\Local\Temp\Alteryx\Engine_30520_ca8c14fde79049518a270909d94d76ae_\Engine_30520_ea00c85e147745d1aefebc9d90d58f74~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="630" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">C:\Users\prasa\Downloads\flight-delay-project\alteryx\clean_flights_2018_2024.yxdb</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+            <WriteCompatibleVersion>False</WriteCompatibleVersion>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>clean_flights_2018_2024.yxdb
+Save cleaned dataset as .yxdb for dashboarding</AnnotationText>
+          <DefaultAnnotationText>clean_flights_2018_2024.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="True" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="True" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>WF_01_ingest_clean</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="f5904a2f-7cc5-43b9-9aa6-a5e92dec52dd" />
+      <Telemetry>
+        <PreviousWorkflowId value="e22b2438-38c2-48d6-a35d-80a2fdb58107" />
+        <OriginWorkflowId value="e22b2438-38c2-48d6-a35d-80a2fdb58107" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

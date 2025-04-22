@@ -1,0 +1,468 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="6" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\prasa\Downloads\flight-delay-project\alteryx\clean_flights_2018_2024.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>clean_flights_2018_2024.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FlightDate" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Operating_Airline " size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Flight_Number_Operating_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Origin" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Dest" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CRSDepTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DepDelayMinutes" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CRSArrTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrDelayMinutes" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrDel15" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Cancelled" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Diverted" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CarrierDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="WeatherDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="NASDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="LateAircraftDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="SLA_Breach" source="Formula: IF ToNumber([ArrDel15]) = 1 THEN 1 ELSE 0 ENDIF&#xA;" type="Int16" />
+            <Field name="DelayCategory" size="64" source="Formula: IF ToNumber([ArrDelayMinutes]) &gt; 60 THEN &quot;Severe&quot;&#xA;ELSEIF ToNumber([ArrDelayMinutes]) &gt; 15 THEN &quot;Moderate&quot;&#xA;ELSEIF ToNumber([ArrDelayMinutes]) &gt; 0 THEN &quot;Minor&quot;&#xA;ELSE &quot;On Time&quot;&#xA;ENDIF&#xA;" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="258" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="FlightDate" action="Count" rename="Total_Flights" />
+            <SummarizeField field="SLA_Breach" action="Sum" rename="SLA_Breaches" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="378" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="([SLA_Breaches] / [Total_Flights]) * 100&#xA;" field="SLA_Breach_Rate" size="8" type="Double" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[SLA_Breach_Rate = ([SLA_Breaches] / [Total_Flights]) * 100
+
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="486" y="-6" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\prasa\AppData\Local\Temp\Alteryx\Engine_5420_88d58ee0f5f041ca8ddbba50bc0c2b07_\Engine_5420_cabaa626b57845b7b96bb2e1e7481af9~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="210" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="FlightDate" action="Count" rename="Total_Flights" />
+            <SummarizeField field="Operating_Airline " action="GroupBy" rename="Operating_Airline " />
+            <SummarizeField field="SLA_Breach" action="Sum" rename="SLA_Breaches" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="294" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Round(([SLA_Breaches] / [Total_Flights]) * 100, 2)&#xA;" field="SLA_Breach_Rate" size="1073741823" type="V_WString" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[SLA_Breach_Rate = Round(([SLA_Breaches] / [Total_Flights]) * 100, 2)
+
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="438" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="SLA_Breach_Rate" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>SLA_Breach_Rate - Descending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+        <Position x="570" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>First</Mode>
+          <N>10</N>
+          <GroupFields orderChanged="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>First 10 rows</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="PlotlyCharting">
+        <Position x="690" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ChartingFields>
+            <Traces json:Array="true" xmlns:json="http://james.newtonking.com/projects/json">
+              <type>bar</type>
+              <mode>markers</mode>
+              <orientation>v</orientation>
+              <ysrc>SLA_Breach_Rate</ysrc>
+              <xsrc>Operating_Airline </xsrc>
+              <name>&amp;nbsp;"Top 10 Airlines by SLA Breach Rate"&amp;nbsp;</name>
+            </Traces>
+            <Layout>
+              <title>
+                <text>
+                </text>
+              </title>
+              <font>
+                <family>sans-serif</family>
+                <size>12</size>
+              </font>
+              <autosize>false</autosize>
+              <width>700</width>
+              <height>849</height>
+              <showlegend>true</showlegend>
+              <hovermode>closest</hovermode>
+              <xaxis>
+                <range>-0.86775647898433839</range>
+                <range>22.077479655209665</range>
+                <autorange>false</autorange>
+                <title>
+                  <text>Operating_Airline </text>
+                </title>
+                <type>category</type>
+              </xaxis>
+              <yaxis>
+                <range>-19.9676732997495</range>
+                <range>19.138047284391916</range>
+                <autorange>false</autorange>
+                <title>
+                  <text>SLA_Breach_Rate</text>
+                </title>
+                <type>category</type>
+              </yaxis>
+              <margin>
+                <pad>0</pad>
+                <t>100</t>
+                <b>80</b>
+                <l>80</l>
+                <r>80</r>
+              </margin>
+            </Layout>
+          </ChartingFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="ComposerInteractiveCharting" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="66" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Origin" action="GroupBy" rename="Origin" />
+            <SummarizeField field="SLA_Breach" action="Sum" rename="Sum_SLA_Breach" />
+            <SummarizeField field="ArrDel15" action="Count" rename="ArrDel15 = 1" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="150" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="ArrDel15 = 1" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>ArrDel15 = 1 - Descending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+        <Position x="222" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>First</Mode>
+          <N>10</N>
+          <GroupFields orderChanged="False">
+            <Field name="ArrDel15 = 1" />
+          </GroupFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>First 10 rows</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="PlotlyCharting">
+        <Position x="246" y="378" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ChartingFields>
+            <Traces json:Array="true" xmlns:json="http://james.newtonking.com/projects/json">
+              <type>scatter</type>
+              <mode>markers</mode>
+              <xsrc>Origin</xsrc>
+              <ysrc>ArrDel15 = 1</ysrc>
+              <orientation>v</orientation>
+              <autocolorscale>true</autocolorscale>
+            </Traces>
+            <Layout>
+              <title>
+                <text>
+                </text>
+              </title>
+              <font>
+                <family>sans-serif</family>
+              </font>
+              <autosize>false</autosize>
+              <width>700</width>
+              <height>849</height>
+              <showlegend>true</showlegend>
+              <hovermode>closest</hovermode>
+              <xaxis>
+                <range>-57.962979162549921</range>
+                <range>288.023656762239</range>
+                <autorange>false</autorange>
+                <title>
+                  <text>Origin</text>
+                </title>
+                <type>category</type>
+              </xaxis>
+              <yaxis>
+                <range>-7317.3103477356926</range>
+                <range>19670.581091471904</range>
+                <autorange>false</autorange>
+                <title>
+                  <text>ArrDel15 = 1</text>
+                </title>
+                <type>linear</type>
+              </yaxis>
+            </Layout>
+          </ChartingFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="ComposerInteractiveCharting" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>WF_03_dashboard</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="2290db15-0a8a-4034-9cb6-2c7f98957331" />
+      <Telemetry>
+        <PreviousWorkflowId value="d836ab9b-0c30-4ad7-a917-f6af9a973c12" />
+        <OriginWorkflowId value="d836ab9b-0c30-4ad7-a917-f6af9a973c12" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

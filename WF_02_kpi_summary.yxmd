@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">C:\Users\prasa\Downloads\flight-delay-project\alteryx\clean_flights_2018_2024.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[clean_flights_2018_2024.yxdb
+Ingesting cleaned flight records with delay details (2018–2024)
+
+]]></AnnotationText>
+          <DefaultAnnotationText>clean_flights_2018_2024.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FlightDate" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Operating_Airline " size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Flight_Number_Operating_Airline" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Origin" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Dest" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CRSDepTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="DepDelayMinutes" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CRSArrTime" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrDelayMinutes" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="ArrDel15" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Cancelled" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="Diverted" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="CarrierDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="WeatherDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="NASDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="LateAircraftDelay" size="254" source="File: C:\Users\prasa\Downloads\flight-delay-project\raw\flight_data_2018_2024.csv" type="V_String" />
+            <Field name="SLA_Breach" source="Formula: IF ToNumber([ArrDel15]) = 1 THEN 1 ELSE 0 ENDIF&#xA;" type="Int16" />
+            <Field name="DelayCategory" size="64" source="Formula: IF ToNumber([ArrDelayMinutes]) &gt; 60 THEN &quot;Severe&quot;&#xA;ELSEIF ToNumber([ArrDelayMinutes]) &gt; 15 THEN &quot;Moderate&quot;&#xA;ELSEIF ToNumber([ArrDelayMinutes]) &gt; 0 THEN &quot;Minor&quot;&#xA;ELSE &quot;On Time&quot;&#xA;ENDIF&#xA;" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="270" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Operating_Airline " action="GroupBy" rename="Operating_Airline " />
+            <SummarizeField field="FlightDate" action="Count" rename="Total_Flights" />
+            <SummarizeField field="SLA_Breach" action="Sum" rename="SLA_Breaches" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[Grouped by Operating Airline to compute Total Flights and SLA Breaches
+
+]]></AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="414" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="([SLA_Breaches] / [Total_Flights]) * 100&#xA;" field="SLA_Breach_Rate" size="8" type="Double" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>SLA_Breach_Rate = ([SLA_Breaches] / [Total_Flights]) * 100
+
+
+Calculated SLA_Breach_Rate = (SLA_Breaches / Total_Flights) * 100</AnnotationText>
+          <DefaultAnnotationText><![CDATA[SLA_Breach_Rate = ([SLA_Breaches] / [Total_Flights]) * 100
+
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="570" y="42" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="1033">
+            <Field field="SLA_Breach_Rate" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>SLA_Breach_Rate - Descending
+
+Sorted airlines by SLA_Breach_Rate (Descending) to identify worst performers</AnnotationText>
+          <DefaultAnnotationText>SLA_Breach_Rate - Descending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="666" y="30" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\prasa\AppData\Local\Temp\Alteryx\Engine_10540_ea93c5e7c4e14cc2abfb69c5887cd3b0_\Engine_10540_5a199683691f4baca9bf5dc8094300c5~.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>WF_02_kpi_summary</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="8d81295a-6b64-42fd-82ea-d11d5e73182c" />
+      <Telemetry>
+        <PreviousWorkflowId value="5fc5c266-eef8-449e-9e1a-4bef3144f5ed" />
+        <OriginWorkflowId value="5fc5c266-eef8-449e-9e1a-4bef3144f5ed" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

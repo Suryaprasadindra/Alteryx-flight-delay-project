@@ -11,14 +11,18 @@ Alteryx-flight-delay-project/ ├── raw/ # Original CSV dataset ├── al
 
 ---
 
+
+---
+
 ## 🎯 Objective
 
-To build a clean, modular workflow in Alteryx that:
-- Filters and enriches flight delay data
-- Flags SLA breaches (delays >15 mins)
-- Classifies delay severity into categories
-- Summarizes KPIs at the airline level
-- Prepares insights for future visualization
+To build a clean, modular Alteryx workflow that:
+
+- Filters and enriches U.S. flight delay data  
+- Flags **SLA breaches** (delays >15 minutes)  
+- Categorizes delays by severity  
+- Summarizes **airline-level KPIs**  
+- Prepares insights for Tableau or Power BI dashboards  
 
 ---
 
@@ -26,99 +30,107 @@ To build a clean, modular workflow in Alteryx that:
 
 - **Alteryx Designer** (AMP Engine)
 - Tools used:
-  - Input Data, Select, Filter, Formula
-  - Summarize, Sort, Sample, Browse
-  - Interactive Chart Tool (for local preview)
+  - Input Data, Select, Filter, Formula  
+  - Summarize, Sort, Sample, Browse  
+  - Interactive Chart Tool (for in-tool previews)
 
 ---
 
 ## 🔄 Workflow Breakdown
 
-### 🧩 1. Ingestion & Cleaning (`WF_01_ingest_clean.yxmd`)
-- Ingested raw CSV data (2018–2024)
+### 🧩 1. Ingestion & Cleaning  
+📄 **Workflow**: `WF_01_ingest_clean.yxmd`
+
+- Ingested raw CSV dataset (2018–2024)
 - Removed:
   - Cancelled flights (`Cancelled = 1`)
   - Diverted flights (`Diverted = 1`)
-- Selected ~15–20 relevant fields only
-- Engineered new fields:
-  - `SLA_Breach`: 1 if `ArrDel15 = 1`
+- Selected ~18 relevant fields (date, delays, carrier, etc.)
+- Created:
+  - `SLA_Breach`: `1` if `ArrDel15 = 1`
   - `DelayCategory`:
-    - `Severe` if `ArrDelayMinutes > 60`
-    - `Moderate` if `>15`
-    - `Minor` if `>0`
-    - `On Time` if `= 0`
-- Saved cleaned data to `.yxdb`:
-  - `clean_flights_2018_2024.yxdb`
+    - Severe: `ArrDelayMinutes > 60`
+    - Moderate: `16–60`
+    - Minor: `1–15`
+    - On Time: `0`
+- Output:  
+  `clean_flights_2018_2024.yxdb`
 
 ---
 
-### 📊 2. KPI Summary by Airline (`WF_02_kpi_summary.yxmd`)
+### 📊 2. KPI Summary by Airline  
+📄 **Workflow**: `WF_02_kpi_summary.yxmd`
+
 - Loaded cleaned `.yxdb` file
 - Grouped by `Operating_Airline`
 - Aggregated:
-  - `Total_Flights`: Count of flights
-  - `SLA_Breaches`: Sum of `SLA_Breach`
+  - `Total_Flights` = `Count([Flight Number])`
+  - `SLA_Breaches` = `Sum([SLA_Breach])`
 - Calculated:
-  - `SLA_Breach_Rate` = `(SLA_Breaches / Total_Flights) * 100`
-- Sorted airlines by highest breach rate for review
+  - `SLA_Breach_Rate = SLA_Breaches / Total_Flights * 100`
+- Sorted airlines by highest breach rates
 
 ---
 
-### 📈 3. Dashboard Layer Prep (`WF_03_dashboard.yxmd`)
-- Re-used cleaned `.yxdb` as source
+### 📈 3. Dashboard Layer Prep  
+📄 **Workflow**: `WF_03_dashboard.yxmd`
+
+- Re-used `.yxdb` as input source
 - Extracted:
+  - Top 10 worst-performing airlines by breach rate
   - Total KPI metrics
-  - Top 10 worst-performing airlines
-- Built bar chart using:
-  - `Operating_Airline` (X-axis)
-  - `SLA_Breach_Rate` (Y-axis)
-- Additional prep for:
-  - Delay category summaries
-  - Region-wise summaries (optional)
-- Cleaned and labeled all components for future export
+  - Delay category breakdowns
+- Created components for:
+  - Bar charts (Airline vs SLA Rate)
+  - Delay severity summaries
+  - Region-wise summaries *(optional)*
+- Final data exported for Tableau/Power BI
 
 ---
 
 ## 📊 Key Metrics Tracked
 
-| Metric             | Description                               |
-|--------------------|-------------------------------------------|
-| SLA_Breach         | 1 if delay >15 mins, else 0               |
-| SLA_Breach_Rate    | % of flights delayed >15 mins per airline |
-| DelayCategory      | Severity label (On Time, Minor, etc.)     |
-| Total_Flights      | Total valid flights analyzed              |
+| Metric              | Description                                      |
+|---------------------|--------------------------------------------------|
+| `SLA_Breach`        | 1 if flight delayed >15 mins, else 0             |
+| `SLA_Breach_Rate`   | SLA breach % by airline                          |
+| `DelayCategory`     | On Time, Minor, Moderate, or Severe              |
+| `Total_Flights`     | Count of valid (non-cancelled, non-diverted) flights |
 
 ---
 
 ## 📤 Outputs
 
-- Final cleaned `.yxdb` file
-- Aggregated breach data
-- Top 10 airline summaries
-- Dashboard-ready summaries for future reporting
+- ✅ Cleaned `.yxdb` file: `clean_flights_2018_2024.yxdb`
+- 📊 KPI summary tables by airline
+- 📈 Top 10 airline breach summary
+- 📦 Dashboard-ready metrics for Tableau
 
 ---
 
 ## 🙋‍♂️ Author
 
 **Indra Prasad Chevva**  
+📍 Master’s in Management Science & Supply Chain  
 📍 Wichita State University  
 📧 ixchevva@shockers.wichita.edu  
-💼 [LinkedIn](https://www.linkedin.com/in/indra-prasad-chevva/)
+🔗 [LinkedIn](https://www.linkedin.com/in/YOUR-LINK) *(update this!)*
 
 ---
 
-## 🧠 Future Enhancements (Optional)
+## 🧠 Future Enhancements
 
-- Delay trends by month or weekday
-- Geographic heatmaps (OriginState vs SLA rate)
-- Export-ready Tableau or Power BI dashboards
-- SLA root cause breakdown (Carrier, NAS, Weather)
+- 📅 Delay trend analysis by weekday or month  
+- 🗺️ Geo heatmaps (e.g., SLA breach by Origin State)  
+- 📈 Publish final dashboard via Tableau Public  
+- 🔍 SLA root cause attribution by delay type (Carrier, NAS, Weather)
 
 ---
 
 ## 📜 License
 
-Open-source for educational and portfolio use.  
-You may use this project under the MIT License.
+This project is open-source and intended for educational and portfolio use.  
+Released under the **MIT License**.
+
+---
 

@@ -104,7 +104,7 @@ To build a clean, modular workflow in Alteryx that:
 **Indra Prasad Chevva**  
 📍 Wichita State University  
 📧 ixchevva@shockers.wichita.edu  
-💼 [LinkedIn](https://www.linkedin.com)
+💼 [LinkedIn](https://www.linkedin.com/in/indra-prasad-chevva/)
 
 ---
 

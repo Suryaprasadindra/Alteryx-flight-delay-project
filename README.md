@@ -1,4 +1,4 @@
-# ✈️ Flight Delay Analytics Dashboard (2018–2024)
+# ✈️ Flight Analytics (2018–2024) in Alteryx
 
 A complete data analytics pipeline in Alteryx Designer to analyze flight delay patterns across US airlines. This project showcases:
 - Data ingestion and cleansing
